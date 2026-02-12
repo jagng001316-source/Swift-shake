@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Contact — Swift Shake</title>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <nav class="navbar" aria-label="Main navigation">
+        <div class="nav-inner">
+          <a class="nav-logo" href="index.html">Swift Shake</a>
+          <div class="nav-links" role="navigation" aria-label="Primary">
+            <a href="index.html">Home</a>
+            <a href="Product page.html">Products</a>
+            <a href="contact page.html" aria-current="page">Contact</a>
+          </div>
+          <button class="nav-toggle" aria-expanded="false" aria-label="Toggle menu">☰</button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>Contact Swift Shake</h1>
+        <p>Have a question or order request? Fill the form or use the contact details on the right and we’ll respond within 24 hours.</p>
+      </section>
+
+      <section style="display:grid;grid-template-columns:1fr 320px;gap:24px;margin-top:16px;">
+        <div>
+          <form id="contactForm" novalidate>
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" required placeholder="Your name">
+
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" required placeholder="you@example.com">
+
+            <label for="subject">Subject</label>
+            <input id="subject" name="subject" type="text" placeholder="Order question, feedback...">
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required placeholder="Write your message here"></textarea>
+
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+
+        <aside>
+          <h2>Other ways to reach us</h2>
+          <p>Email: <a href="mailto:swftshake@gmail.com">swftshake@gmail.com</a></p>
+         <h3>Opening Hours</h3>
+          <table>
+            <tr><th>Day</th><th>Hours</th></tr>
+            <tr><td>Monday–Sunday</td><td>24 hours</td></tr>
+          </table>
+
+          <h3>Location</h3>
+          <p>Swift Shake — Online Store</p>
+        </aside>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Swift Shake. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    // navbar toggle
+    document.querySelectorAll('.nav-toggle').forEach(btn=>{
+      btn.addEventListener('click', () => {
+        const nav = btn.closest('.navbar');
+        const expanded = nav.classList.toggle('open');
+        btn.setAttribute('aria-expanded', expanded);
+      });
+    });
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = this.name.value.trim();
+      const email = this.email.value.trim();
+      const message = this.message.value.trim();
+      if (!name || !email || !message) {
+        alert('Please complete the required fields: name, email, and message.');
+        return;
+      }
+      alert('Thanks ' + name + '! Your message has been received — we will contact you soon.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, Roboto, "Helvetica Neue", Arial;
+  background-color: #2b2b2b; /* dark grey background */
+  color: #e6e6e6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  position: relative;
+}
+
+/* subtle framed border around the viewport for a "boxed" look */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 12px; /* space from the window edge */
+  border-radius: 10px;
+  border: 2px solid rgba(255,255,255,0.06); /* slightly stronger frame */
+  pointer-events: none;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.02);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  gap: 12px;
+  padding: 12px 20px;
+  background-color: #1f1f1f;
+  border-bottom: 1px solid rgba(255,255,255,0.04); /* subtle divider */
+  align-items: center;
+}
+
+.navbar a {
+  color: #e6e6e6;
+  text-decoration: none;
+  margin-right: 16px;
+  font-weight: 600;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+
+.navbar a:hover,
+.navbar a[aria-current="page"] {
+  background: rgba(255,255,255,0.04);
+}
+
+/* Navbar inner layout and professional styles */
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+/* Logo */
+.nav-logo {
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 0.4px;
+  padding: 6px 8px;
+}
+
+/* Links group */
+.nav-links {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-left: 8px;
+}
+.nav-links a {
+  color: #e6e6e6;
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
+  background: rgba(255,255,255,0.04);
+}
+
+/* Mobile toggle */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  color: #e6e6e6;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+/* Mobile styles */
+@media (max-width: 800px) {
+  .nav-links { display: none; flex-direction: column; gap: 8px; background: transparent; margin: 8px 0; }
+  .nav-toggle { display: inline-flex; align-items:center; }
+
+  .navbar.open .nav-links { display: flex; background: transparent; width: 100%; padding-top: 8px; }
+}
+
+/* Container */
+.container {
+  max-width: 1100px;
+  margin: 48px auto;
+  padding: 32px;
+  background-color: #151515;
+  border: 1px solid rgba(255,255,255,0.06); /* stronger but subtle border */
+  border-radius: 12px;
+  color: #e6e6e6;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  position: relative;
+  z-index: 1;
+}
+
+/* Form controls */
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  background-color: #222;
+  border: 1px solid #3a3a3a;
+  border-radius: 8px;
+  color: #e6e6e6;
+  box-sizing: border-box;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #2a8fbd;
+  box-shadow: 0 0 0 3px rgba(42,143,189,0.08);
+}
+
+/* Buttons */
+button {
+  background-color: #2a8fbd;
+  color: #ffffff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.95;
+}
+
+/* Misc */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #262626;
+  color: #dcdcdc;
+}
+
+/* Content cards / product entries */
+article {
+  border: 1px solid rgba(255,255,255,0.035);
+  border-radius: 8px;
+  padding: 12px;
+  background: rgba(255,255,255,0.01);
+}
+
+/* Images: framed look */
+article img,
+img {
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 6px;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Footer divider */
+footer {
+  margin-top: 32px;
+  padding: 18px 0;
+  text-align: center;
+  font-size: 13px;
+  color: #9a9a9a;
+  border-top: 1px solid rgba(255,255,255,0.03);
+  padding-top: 18px;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .container { margin: 20px; padding: 20px; }
+}
